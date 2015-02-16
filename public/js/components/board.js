@@ -20,13 +20,13 @@ angular.module('board',
 
         function link (scope) {
             scope.modules = {};
+            scope.gridLayout = {};
             scope.getTemplate = getTemplate;
 
             var nextModuleId = -1;
             var connection = WebRTC.getConnection();
 
             initVideoListeners();
-            initGridSync();
 
             addModule('codepad', getCodepadData);
 
@@ -64,6 +64,7 @@ angular.module('board',
 
             function initializeCall(sessionId) {
                 connection.joinRoom(scope.boardName);
+                initGridSync();
             }
 
             function AddNewVideo(video, peer) {
