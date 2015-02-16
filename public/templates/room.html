@@ -1,0 +1,10 @@
+<div gridster>
+    <ul>
+        <li gridster-item="gridLayout[moduleKey]" 
+            ng-repeat="(moduleKey, module) in modules" 
+            class="board-item">
+
+            <ng-include src="getTemplate(module.type)"></ng-include>
+        </li>
+    </ul>
+</div>
