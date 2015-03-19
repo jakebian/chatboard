@@ -1,4 +1,4 @@
-angular.module('board', 
+angular.module('board',
     [
         'board-modules',
         'webrtc-service',
@@ -7,7 +7,7 @@ angular.module('board',
     ]
 )
 
-.directive('board', 
+.directive('board',
             ['WebRTC','$sce','FirebaseService',
     function (WebRTC , $sce , FirebaseService) {
         return {
@@ -22,20 +22,27 @@ angular.module('board',
             scope.modules = {};
             scope.gridLayout = {};
             scope.getTemplate = getTemplate;
+            scope.addCodepad = addCodepad;
 
             var nextModuleId = -1;
             var connection = WebRTC.getConnection();
 
             initVideoListeners();
 
-            addModule('codepad', getCodepadData);
+            addCodepad();
 
             function getCodepadData(moduleKey) {
                 return {
                     boardName: scope.boardName,
-                    moduleId: moduleKey
+                    moduleKey: moduleKey
                 }
             }
+
+            function addCodepad() {
+                addModule('codepad', getCodepadData);
+                console.log(scope.modules);
+            }
+
             function initGridSync() {
                 var sync = FirebaseService.getSync(scope.boardName, 'layout');
                 scope.gridLayout = sync.$asObject();
@@ -45,7 +52,7 @@ angular.module('board',
                 });
             }
 
-            function initVideoListeners() { 
+            function initVideoListeners() {
                 connection.on('connectionReady', initializeConnection);
                 connection.on('readyToCall', initializeCall);
                 connection.on('videoAdded', AddNewVideo);

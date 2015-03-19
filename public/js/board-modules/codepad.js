@@ -1,5 +1,5 @@
 angular.module('codepad-module', [])
-.directive('codepadModule', ['FirebaseService', 
+.directive('codepadModule', ['FirebaseService',
     function (FirebaseService) {
         return {
             scope: {
@@ -9,14 +9,15 @@ angular.module('codepad-module', [])
             template: '<div class="codepad-content"></div>'
         }
         function link(scope, elem) {
-            var firepad; 
+            var firepad;
             initFirepad();
             scope.$on('$destroy', destroyFirepad);
 
             function initFirepad() {
                 var fireLink = FirebaseService.getLink(
-                    scope.moduleData.boardName, 
+                    scope.moduleData.boardName,
                     scope.moduleData.moduleKey);
+                console.log(fireLink);
                 var firepadRef = new Firebase(fireLink);
                 var editor = ace.edit(elem.find('.codepad-content')[0]);
                 editor.setTheme("ace/theme/monokai");

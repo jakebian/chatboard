@@ -1,4 +1,4 @@
-angular.module('board-modules', 
+angular.module('board-modules',
     [
         'video-module',
         'codepad-module'

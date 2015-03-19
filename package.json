@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "dependencies": {
     "express": "^4.11.2"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
   }
 }
