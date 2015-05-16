@@ -1,0 +1,17 @@
+{
+  "browser": true,
+  "jquery": true,
+  "eqeqeq": false,
+  "eqnull": true,
+  "smarttabs": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "globalstrict": true,
+  "globals": {
+    "angular": true,
+    "Firebase": true,
+    "Firepad": true,
+    "ace": true
+  }
+}

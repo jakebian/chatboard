@@ -1,24 +1,27 @@
-angular.module('board',
-    [
-        'board-modules',
-        'webrtc-service',
-        'gridster',
-        'firebase-service'
-    ]
-)
+'use strict';
 
-.directive('board',
-            ['WebRTC','$sce','FirebaseService',
+angular.module('board',[
+    'board-modules',
+    'webrtc-service',
+    'gridster',
+    'firebase-service'
+])
+
+.directive('board',[
+
+             'WebRTC','$sce','FirebaseService',
     function (WebRTC , $sce , FirebaseService) {
+
         return {
             scope: {
                 boardName: '@'
             },
             link: link,
             templateUrl: 'templates/room.html'
-        }
+        };
 
         function link (scope) {
+
             scope.modules = {};
             scope.gridLayout = {};
             scope.getTemplate = getTemplate;
@@ -35,19 +38,18 @@ angular.module('board',
                 return {
                     boardName: scope.boardName,
                     moduleKey: moduleKey
-                }
+                };
             }
 
             function addCodepad() {
                 addModule('codepad', getCodepadData);
-                console.log(scope.modules);
             }
 
             function initGridSync() {
                 var sync = FirebaseService.getSync(scope.boardName, 'layout');
                 scope.gridLayout = sync.$asObject();
 
-                scope.$on('GridLayoutChange', function(event, newSizes){
+                scope.$on('GridLayoutChange', function(){
                     scope.gridLayout.$save();
                 });
             }
@@ -69,7 +71,7 @@ angular.module('board',
                 WebRTC.startLocalVideo(sessionId);
             }
 
-            function initializeCall(sessionId) {
+            function initializeCall() {
                 connection.joinRoom(scope.boardName);
                 initGridSync();
             }
@@ -102,9 +104,10 @@ angular.module('board',
                     return {
                         sessionId: sessionId,
                         elem: elem
-                    }
-                }
+                    };
+                };
             }
+
         }
     }
 ]);

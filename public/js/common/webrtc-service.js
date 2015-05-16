@@ -1,7 +1,13 @@
+(function () {
+
+'use strict';
+
 var SERVER_URL = 'http://localhost:8888/';
 
 angular.module('webrtc-service', [])
+
 .service('WebRTC', function () {
+
     var webrtc;
 
     return {
@@ -17,11 +23,14 @@ angular.module('webrtc-service', [])
     }
 
     function startLocalVideo(sessionId) {
+
         webrtc.config.localVideoEl = 'video-' + sessionId;
         webrtc.startLocalVideo();
+
     }
 
     function newWebrtc() {
+
         var newWebrtc = new SimpleWebRTC({
             // the id/element dom element that will hold remote videos
             remoteVideosEl: '',
@@ -38,4 +47,7 @@ angular.module('webrtc-service', [])
 
         return newWebrtc;
     }
+
 });
+
+})();

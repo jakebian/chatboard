@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('video-module', [])
 .directive('videoModule', [function () {
 
@@ -7,7 +9,7 @@ angular.module('video-module', [])
         },
         link: link,
         templateUrl: 'templates/video.html'
-    }
+    };
 
     function link(scope, elem) {
         if (scope.videoData.elem) {
@@ -15,4 +17,4 @@ angular.module('video-module', [])
         }
     }
 
-}])
+}]);
