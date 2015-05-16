@@ -21,9 +21,9 @@ angular.module('firebase-service', ['firebase'])
         }
 
         function getSync(board, field) {
-            var firebaseLink = getFirebaseLink(board, field);
-            var ref = new Firebase(firebaseLink);
-            return $firebase(ref);
+            return $firebase(
+                new Firebase(getFirebaseLink(board, field))
+            );
         }
 
     }

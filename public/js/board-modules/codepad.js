@@ -16,24 +16,28 @@ angular.module('codepad-module', [])
         };
 
         function link(scope, elem) {
+
             var firepad;
+
             initFirepad();
             scope.$on('$destroy', destroyFirepad);
 
             function initFirepad() {
-                var fireLink = FirebaseService.getLink(
+
+                var firepadRef = new Firebase(FirebaseService.getLink(
                     scope.moduleData.boardName,
-                    scope.moduleData.moduleKey);
-                var firepadRef = new Firebase(fireLink);
+                    scope.moduleData.moduleKey
+                ));
+
                 var editor = ace.edit(elem.find('.codepad-content')[0]);
+
                 editor.setTheme("ace/theme/monokai");
                 firepad = Firepad.fromACE(firepadRef, editor);
             }
 
             function destroyFirepad() {
-                if (firepad) {
-                    firepad.dispose();
-                }
+                if (!firepad) { return; }
+                firepad.dispose();
             }
 
         }

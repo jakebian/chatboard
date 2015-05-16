@@ -50,10 +50,7 @@ angular.module('board',[
                 var sync = FirebaseService.getSync(scope.boardName, 'layout');
                 scope.gridLayout = sync.$asObject();
 
-                scope.$on('GridLayoutChange', function(){
-                    scope.gridLayout.$save();
-                });
-
+                scope.$watch('gridLayout', angular.bind(scope.gridLayout.$save, scope), true);
             }
 
             function initVideoListeners() {

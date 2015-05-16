@@ -12,9 +12,8 @@ angular.module('video-module', [])
     };
 
     function link(scope, elem) {
-        if (scope.videoData.elem) {
-            angular.element(scope.videoData.elem).appendTo(elem.find('.video-container'));
-        }
+        if (!scope.videoData.elem) { return; }
+        angular.element(scope.videoData.elem).appendTo(elem.find('.video-container'));
     }
 
 }]);
