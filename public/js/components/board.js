@@ -46,12 +46,14 @@ angular.module('board',[
             }
 
             function initGridSync() {
+
                 var sync = FirebaseService.getSync(scope.boardName, 'layout');
                 scope.gridLayout = sync.$asObject();
 
                 scope.$on('GridLayoutChange', function(){
                     scope.gridLayout.$save();
                 });
+
             }
 
             function initVideoListeners() {
