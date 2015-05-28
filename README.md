@@ -3,10 +3,10 @@
 Realtime collaborative rooms with video, live coding and synchronized layout.
 
 Built with (among other things):
-- [simple webRTC] (https://github.com/HenrikJoreteg/SimpleWebRTC)
-- [Firebase] (https://www.firebase.com/)
+- [simple webRTC](https://github.com/HenrikJoreteg/SimpleWebRTC)
+- [Firebase](https://www.firebase.com/)
 - [Firepad](http://www.firepad.io/)
-- [Angular Gridster] (https://github.com/ManifestWebDesign/angular-gridster)
+- [Angular Gridster](https://github.com/ManifestWebDesign/angular-gridster)
 
 ## Setting up:
 
