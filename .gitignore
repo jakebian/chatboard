@@ -1,3 +1,4 @@
 app/public/bower_components
+app/public/css
 node_modules
 signal-server

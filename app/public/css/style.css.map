@@ -2,9 +2,12 @@
 	"version": 3,
 	"file": "style.css",
 	"sources": [
-		"../../scss/style.scss"
+		"../../scss/style.scss",
+		"../../scss/board.scss",
+		"../../scss/components/codepad.scss",
+		"../../scss/components/video.scss"
 	],
 	"sourcesContent": [],
-	"mappings": "AAAA,IAAI,CAAC;EACD,gBAAgB,EAAE,IAAK,GADrB",
+	"mappings": "ACAA,WAAW,CAAC;EACR,aAAa,EAAE,GAAI;EACnB,QAAQ,EAAE,MAAO,GAFR;;ACAb,gBAAgB,CAAC;EACb,OAAO,EAAE,KAAM;EACf,KAAK,EAAE,IAAK;EACZ,MAAM,EAAE,IAAK,GAHC;;AAMlB,mBAAmB,CAAC;EAChB,OAAO,EAAE,IAAK,GADG;;AAIrB,QAAQ,CAAC;EACP,UAAU,EAAC,KAAM,GADT;;ACVuC,YAAY,EAAE,gBAAgB,EAAE,gBAAgB,CAAC,KAAK,CAAjD;EAClD,KAAK,EAAE,IAAK;EACZ,MAAM,EAAE,IAAK;EACb,gBAAgB,EAAE,IAAK,GAH4B",
 	"names": []
 }
